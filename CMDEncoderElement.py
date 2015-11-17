@@ -1,6 +1,4 @@
 from _Framework.EncoderElement import EncoderElement
-from _Framework.ButtonElement import ButtonElement
-from _Framework.InputControlElement import InputControlElement
 class CMDEncoderElement(EncoderElement):
 
     def __init__(self, msg_type, channel, identifier, map_mode, sensitivity):

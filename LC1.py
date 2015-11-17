@@ -2,32 +2,30 @@
 #This is a stripped-down script, which uses the Framework classes to assign MIDI notes to play, stop and record.
 from __future__ import with_statement
 import Live # This allows us (and the Framework methods) to use the Live API on occasion
-import time # We will be using time functions for time-stamping our log file outputs
-import math
-import sys
+ # We will be using time functions for time-stamping our log file outputs
 
 """ All of the Framework files are listed below, but we are only using using some of them in this script (the rest are commented out) """
 from _Framework.ButtonElement import ButtonElement # Class representing a button a the controller
 
 from _Framework.ButtonMatrixElement import ButtonMatrixElement # Class representing a 2-dimensional set of buttons
-from _Framework.ChannelStripComponent import ChannelStripComponent # Class attaching to the mixer of a given track
-from _Framework.ClipSlotComponent import ClipSlotComponent # Class representing a ClipSlot within Live
-from _Framework.CompoundComponent import CompoundComponent # Base class for classes encompasing other components to form complex components
-from _Framework.ControlElement import ControlElement # Base class for all classes representing control elements on a controller 
+ # Class attaching to the mixer of a given track
+ # Class representing a ClipSlot within Live
+ # Base class for classes encompasing other components to form complex components
+ # Base class for all classes representing control elements on a controller 
 from _Framework.ControlSurface import ControlSurface # Central base class for scripts based on the new Framework
-from _Framework.ControlSurfaceComponent import ControlSurfaceComponent # Base class for all classes encapsulating functions in Live
-from _Framework.DeviceComponent import DeviceComponent # Class representing a device in Live
+ # Base class for all classes encapsulating functions in Live
+ # Class representing a device in Live
 from _Framework.EncoderElement import EncoderElement # Class representing a continuous control on the controller
 from _Framework.InputControlElement import * # Base class for all classes representing control elements on a controller
 from _Framework.MixerComponent import MixerComponent # Class encompassing several channel strips to form a mixer
-from _Framework.ModeSelectorComponent import ModeSelectorComponent # Class for switching between modes, handle several functions with few controls
-from _Framework.NotifyingControlElement import NotifyingControlElement # Class representing control elements that can send values
-from _Framework.SceneComponent import SceneComponent # Class representing a scene in Live
+ # Class for switching between modes, handle several functions with few controls
+ # Class representing control elements that can send values
+ # Class representing a scene in Live
 from _Framework.SessionComponent import SessionComponent # Class encompassing several scene to cover a defined section of Live's session
-from _Framework.SessionZoomingComponent import SessionZoomingComponent # Class using a matrix of buttons to choose blocks of clips in the session
-from _Framework.SliderElement import SliderElement # Class representing a slider on the controller
-from _Framework.TrackEQComponent import TrackEQComponent # Class representing a track's EQ, it attaches to the last EQ device in the track
-from _Framework.TrackFilterComponent import TrackFilterComponent # Class representing a track's filter, attaches to the last filter in the track
+from _Framework.SessionZoomingComponent import DeprecatedSessionZoomingComponent # Class using a matrix of buttons to choose blocks of clips in the session
+ # Class representing a slider on the controller
+ # Class representing a track's EQ, it attaches to the last EQ device in the track
+ # Class representing a track's filter, attaches to the last filter in the track
 from _Framework.TransportComponent import TransportComponent # Class encapsulating all functions in Live's transport section
 
 from ShiftableDeviceComponent import ShiftableDeviceComponent
@@ -172,7 +170,7 @@ class LC1(ControlSurface):
                 self.scene[row].clip_slot(column).set_stopped_value(CLIP_STOP_COLOR)
                 self.scene[row].clip_slot(column).set_started_value(CLIP_STARTED_COLOR)
         self.set_highlighting_session_component(self.session)        
-        self.session_zoom = SessionZoomingComponent(self.session)                 #this creates the ZoomingComponent that allows navigation when the shift button is pressed
+        self.session_zoom = DeprecatedSessionZoomingComponent(self.session)                 #this creates the ZoomingComponent that allows navigation when the shift button is pressed
         self.session_zoom.name = 'Session_Overview'                            #name it so we can access it in m4l
         self.session_zoom.set_stopped_value(ZOOM_STOPPED)            #set the zooms stopped color
         self.session_zoom.set_playing_value(ZOOM_PLAYING)            #set the zooms playing color

@@ -1,10 +1,6 @@
 # emacs-mode: -*- python-*-
-import Live
 #from MonOhmod import MonOhmod
-from ShiftModeComponent import ShiftModeComponent
-from _Framework.ControlSurfaceComponent import ControlSurfaceComponent
 from _Framework.ButtonElement import ButtonElement
-from _Framework.ButtonMatrixElement import ButtonMatrixElement
 from _Framework.ModeSelectorComponent import ModeSelectorComponent
 from FlashingButtonElement import FlashingButtonElement
 from _Tools.re import *

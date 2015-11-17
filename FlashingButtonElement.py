@@ -1,8 +1,6 @@
 # emacs-mode: -*- python-*-
-import Live
 from _Framework.ButtonElement import ButtonElement
 from _Framework.InputControlElement import InputControlElement
-from _Framework.NotifyingControlElement import NotifyingControlElement
 
 COLOR_MAP = [0, 1, 2, 3, 4, 5, 127]
 
@@ -76,12 +74,12 @@ class FlashingButtonElement(ButtonElement):
 		self._last_sent_message = None
 		ButtonElement.receive_value(self, value)
 
-	def send_value(self, value, force_send = False):		#commented this because of ButtonElement==NoneType errors in log
+	def send_value(self, value, force = False):		#commented this because of ButtonElement==NoneType errors in log
 		if(type(self) != type(None)):
 			assert (value != None)
 			assert isinstance(value, int)
 			assert (value in range(128))
-			if (force_send or ((value != self._last_sent_value) and self._is_being_forwarded)):
+			if (force or ((value != self._last_sent_value) and self._is_being_forwarded)):
 				data_byte1 = self._original_identifier
 				if value in range(1, 127):
 					data_byte2 = COLOR_MAP[(value - 1) % 6]
