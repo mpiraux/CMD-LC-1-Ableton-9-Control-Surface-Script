@@ -16,7 +16,7 @@ If this is not working, please fill in an [issue](https://github.com/mpiraux/CMD
 ## Troubleshooting
 **\#1:** I would like to use the script with another channel than Behringer default one.
 
-  If you changed the channel of your device, you can simply make the script work again by changing a single value [here](https://github.com/mpiraux/CMD-LC-1-Ableton-9-Control-Surface-Script/blob/master/LC1.py#L40). The `CHANNEL` variable represents the MIDI channel of the device. Be careful though, because Behringer labels channel from 1 to 16, but in fact MIDI channels are numbered from 0 to 15. So be sure to subtract your channel number by one when changing this variable.
+  If you changed the channel of your device, you can simply make the script work again by changing a single value [here](https://github.com/mpiraux/CMD-LC-1-Ableton-9-Control-Surface-Script/blob/master/LC1.py#L40). The `CHANNEL` variable represents the MIDI channel of the device. Be careful though, because Behringer channel changer software labels channel from 1 to 16, but in fact MIDI channels are numbered from 0 to 15. So be sure to subtract your channel number by one when changing this variable.
   
 **\#2:** I have two devices and I would like them to be independent.
 
